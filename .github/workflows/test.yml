@@ -1,0 +1,31 @@
+name: Deploy Config - Release
+
+# Controls when the workflow will run.
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Select the environment
+        required: true
+        options:
+          - DEV
+          - QA
+          - PERF
+          - PROD
+        default: DEV  # Set the default environment choice here
+      choice:
+        type: choice
+        description: Select type of Business
+        options:
+          - Retail
+        default: Retail  # Set the default choice here
+
+jobs:
+  echo-selections:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Selected Inputs
+        run: |
+          echo "Selected environment: ${{ github.event.inputs.environment }}"
+          echo "Selected business type: ${{ github.event.inputs.choice }}"
