@@ -22,7 +22,7 @@ on:
         default: Retail  # Set the default choice here
 
 jobs:
-  unauthorized-user-check:
+  unauthorized-workflow-trigger:
     if: ${{ !contains(fromJSON(vars.AUTHORIZED_WORKFLOW_DISPATCH_USERS), github.actor) }}
     runs-on: ubuntu-latest
     steps:
