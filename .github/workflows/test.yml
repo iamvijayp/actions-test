@@ -23,7 +23,7 @@ on:
 
 jobs:
   unauthorized_user_check:
-    if: ${{ !contains(fromJSON('["iamvijayp", "allowed-user2", "allowed-user3"]'), github.actor) }}
+    if: ${{ !contains(fromJSON('["iamvijayp1", "allowed-user2", "allowed-user3"]'), github.actor) }}
     runs-on: ubuntu-latest
     steps:
       - name: Print failure message
@@ -32,7 +32,7 @@ jobs:
           exit 1
   echo-selections:
     runs-on: ubuntu-latest
-    if: contains(fromJSON('["iamvijayp", "iamvijayp2", "allowed-user3"]'), github.actor)
+    if: contains(fromJSON('["iamvijayp1", "iamvijayp2", "allowed-user3"]'), github.actor)
     steps:
       - name: Echo Selected Inputs
         run: |
