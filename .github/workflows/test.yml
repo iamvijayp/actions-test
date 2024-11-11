@@ -22,12 +22,14 @@ on:
         default: Retail  # Set the default choice here
 
 jobs:
-  fail-message:
+  retricted_worklow:
     if: ${{ !contains(fromJSON('["iamvijayp1", "allowed-user2", "allowed-user3"]'), github.actor) }}
     runs-on: ubuntu-latest
     steps:
       - name: Print failure message
-        run: echo "You are not authorized to trigger this workflow"
+        run: |
+          echo "You are not authorized to trigger this workflow"
+          exit 1
   echo-selections:
     runs-on: ubuntu-latest
     if: contains(fromJSON('["iamvijayp1", "iamvijayp2", "allowed-user3"]'), github.actor)
