@@ -26,10 +26,11 @@ jobs:
     if: ${{ !contains(fromJSON(vars.AUTHORIZED_WORKFLOW_DISPATCH_USERS), github.actor) }}
     runs-on: ubuntu-latest
     steps:
-      - name: Failure reason
+      - name: Failure message
         run: |
           echo "You are not authorized to trigger this workflow"
-      - run: exit 1
+      - name: Abort workflow run
+        run: exit 1
   echo-selections:
     runs-on: ubuntu-latest
     if: contains(fromJSON(vars.AUTHORIZED_WORKFLOW_DISPATCH_USERS), github.actor)
