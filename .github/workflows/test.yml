@@ -31,7 +31,17 @@ jobs:
           echo "You are not authorized to trigger this workflow"
       - name: Abort workflow run
         run: exit 1
-  echo-selections:
+  us-east-1:
+    runs-on: ubuntu-latest
+    if: contains(fromJSON(vars.AUTHORIZED_WORKFLOW_DISPATCH_USERS), github.actor)
+    steps:
+      - name: Echo Selected Inputs
+        run: |
+          echo "Selected environment: ${{ github.event.inputs.environment }}"
+          echo "Selected business type: ${{ github.event.inputs.choice }}"
+          echo "user triggered workflow is ${{ github.actor }}"
+
+  us-west-2:
     runs-on: ubuntu-latest
     if: contains(fromJSON(vars.AUTHORIZED_WORKFLOW_DISPATCH_USERS), github.actor)
     steps:
