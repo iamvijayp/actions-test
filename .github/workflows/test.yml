@@ -24,7 +24,7 @@ on:
 jobs:
   echo-selections:
     runs-on: ubuntu-latest
-    if: contains('["iamvijayp", "allowed-user2", "allowed-user3"]', github.actor)
+    if: contains('["iamvijayp1", "allowed-user2", "allowed-user3"]', github.actor)
     steps:
       - name: Echo Selected Inputs
         run: |
