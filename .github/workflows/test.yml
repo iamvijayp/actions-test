@@ -22,14 +22,14 @@ on:
         default: Retail  # Set the default choice here
 
 jobs:
-  unauthorized_user_check:
+  unauthorized-user-check:
     if: ${{ !contains(fromJSON(vars.AUTHORIZED_WORKFLOW_DISPATCH_USERS), github.actor) }}
     runs-on: ubuntu-latest
     steps:
-      - name: Print failure reason
+      - name: Failure reason
         run: |
           echo "You are not authorized to trigger this workflow"
-          exit 1
+      - run: exit 1
   echo-selections:
     runs-on: ubuntu-latest
     if: contains(fromJSON(vars.AUTHORIZED_WORKFLOW_DISPATCH_USERS), github.actor)
