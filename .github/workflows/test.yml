@@ -23,7 +23,7 @@ on:
 
 jobs:
   fail-message:
-    if: !contains(fromJSON('["iamvijayp1", "allowed-user2", "allowed-user3"]'), github.actor)
+    if: ${{ !contains(fromJSON('["iamvijayp1", "allowed-user2", "allowed-user3"]'), github.actor) }}
     runs-on: ubuntu-latest
     steps:
       - name: Print failure message
