@@ -22,7 +22,7 @@ on:
         default: Retail  # Set the default choice here
 
 jobs:
-  retricted_worklow:
+  unauthorized_user_check:
     if: ${{ !contains(fromJSON('["iamvijayp", "allowed-user2", "allowed-user3"]'), github.actor) }}
     runs-on: ubuntu-latest
     steps:
