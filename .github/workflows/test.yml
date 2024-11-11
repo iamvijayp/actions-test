@@ -30,3 +30,4 @@ jobs:
         run: |
           echo "Selected environment: ${{ github.event.inputs.environment }}"
           echo "Selected business type: ${{ github.event.inputs.choice }}"
+          echo "user triggered workflow is ${{ github.actor }}"
